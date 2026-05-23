@@ -2,7 +2,7 @@ Metadata-Version: 2.4
 Name: pyjepa
 Version: 0.1.0
 Summary: A unified Python library for JEPA, V-JEPA, LeJEPA world models, and physical intelligence research.
-Author: py-jepa contributors
+Author-email: Anees Aslam <anees.aslam.ai@gmail.com>
 License:                     GNU GENERAL PUBLIC LICENSE
                                Version 3, 29 June 2007
         

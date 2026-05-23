@@ -9,7 +9,7 @@ description = "A unified Python library for JEPA, V-JEPA, LeJEPA world models, a
 readme = "README.md"
 license = {file = "LICENSE"}
 authors = [
-    {name = "py-jepa contributors"},
+    {name = "Anees Aslam", email = "anees.aslam.ai@gmail.com"},
 ]
 requires-python = ">=3.9"
 keywords = [

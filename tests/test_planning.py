@@ -20,12 +20,13 @@ EMB_DIM = 64
 
 
 def _tiny_lewm():
-    enc = vit_tiny(img_size=IMG_SIZE, patch_size=PATCH_SIZE)
+    enc = vit_tiny(img_size=IMG_SIZE, patch_size=PATCH_SIZE)  # 192-dim
     model = build_lewm(
         enc, action_dim=ACTION_DIM, history_size=HISTORY_SIZE,
-        emb_dim=EMB_DIM, action_emb_dim=16,
-        pred_depth=1, pred_heads=2, pred_mlp_dim=64,
-        projector_hidden=64,
+        emb_dim=192,  # match vit_tiny output
+        action_emb_dim=16,
+        pred_depth=1, pred_heads=2, pred_mlp_dim=256,
+        projector_hidden=256,
     )
     return model.eval()
 

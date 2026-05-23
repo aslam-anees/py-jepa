@@ -50,25 +50,29 @@ class TestSIGReg:
 
 
 class TestVICRegLoss:
-    def test_forward_returns_scalar(self):
+    def test_forward_returns_dict(self):
         z = torch.randn(8, 64)
         loss_fn = VICRegLoss()
-        loss = loss_fn(z)
-        assert loss.ndim == 0
+        loss_dict = loss_fn(z)
+        assert isinstance(loss_dict, dict)
+        assert "loss" in loss_dict
+        assert torch.isfinite(loss_dict["loss"])
 
     def test_coefficients(self):
         z = torch.randn(16, 64)
         loss_default = VICRegLoss(sim_coeff=25., std_coeff=25., cov_coeff=1.)
         loss_val = loss_default(z)
-        assert torch.isfinite(loss_val)
+        assert torch.isfinite(loss_val["loss"])
+        assert "loss_var" in loss_val
 
     def test_two_view(self):
         """VICReg can optionally accept two views."""
         z1 = torch.randn(8, 64)
         z2 = torch.randn(8, 64)
         loss_fn = VICRegLoss()
-        loss = loss_fn(z1, z2)
-        assert loss.ndim == 0
+        loss_dict = loss_fn(z1, z2)
+        assert isinstance(loss_dict, dict)
+        assert torch.isfinite(loss_dict["loss"])
 
 
 class TestVarianceRegularizer:
@@ -77,15 +81,15 @@ class TestVarianceRegularizer:
         z_low_var = torch.ones(16, 64) * 0.01       # near-constant -> high penalty
         z_high_var = torch.randn(16, 64) * 3.0      # large variance -> low penalty
 
-        loss_low = reg(z_low_var).item()
-        loss_high = reg(z_high_var).item()
+        loss_low = reg([z_low_var]).item()
+        loss_high = reg([z_high_var]).item()
         assert loss_low > loss_high
 
     def test_zero_when_sufficient_variance(self):
         """When all feature dims have std > 1, penalty should be 0."""
-        reg = VarianceRegularizer(gamma=1.0)
-        z = torch.randn(64, 64) * 2.0   # std ~ 2 > gamma=1
-        loss = reg(z).item()
+        reg = VarianceRegularizer()
+        z = torch.randn(64, 64) * 2.0   # std ~ 2 > 1
+        loss = reg([z]).item()
         assert loss == pytest.approx(0.0, abs=1e-3)
 
 
@@ -94,21 +98,23 @@ class TestJEPALoss:
         loss_fn = JEPALoss(loss_exp=1.0, reg_coeff=0.0)
         preds = [torch.randn(4, 8, 64) for _ in range(3)]
         targets = [torch.randn(4, 8, 64) for _ in range(3)]
-        loss = loss_fn(preds, targets)
-        assert loss.ndim == 0
-        assert torch.isfinite(loss)
+        loss_dict = loss_fn(preds, targets)
+        assert isinstance(loss_dict, dict)
+        assert "loss" in loss_dict
+        assert torch.isfinite(loss_dict["loss"])
 
     def test_with_variance_regularizer(self):
         loss_fn = JEPALoss(loss_exp=1.0, reg_coeff=0.1)
         preds = [torch.randn(4, 8, 64) for _ in range(2)]
         targets = [torch.randn(4, 8, 64) for _ in range(2)]
-        loss = loss_fn(preds, targets)
-        assert torch.isfinite(loss)
+        loss_dict = loss_fn(preds, targets)
+        assert torch.isfinite(loss_dict["loss"])
+        assert "loss_reg" in loss_dict
 
     def test_loss_exp(self):
         """loss_exp=2 uses L4 norm; should still produce finite scalar."""
         loss_fn = JEPALoss(loss_exp=2.0, reg_coeff=0.0)
         preds = [torch.randn(4, 8, 64)]
         targets = [torch.randn(4, 8, 64)]
-        loss = loss_fn(preds, targets)
-        assert torch.isfinite(loss)
+        loss_dict = loss_fn(preds, targets)
+        assert torch.isfinite(loss_dict["loss"])
