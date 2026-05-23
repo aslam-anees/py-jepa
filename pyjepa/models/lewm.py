@@ -77,7 +77,18 @@ class ARPredictor(nn.Module):
     def forward(self, x: torch.Tensor, c: torch.Tensor) -> torch.Tensor:
         """``x``: ``(B, T, D)``  ``c``: ``(B, T, A_emb)``."""
         T = x.size(1)
-        x = x + self.pos_embedding[:, :T]
+        P = self.pos_embedding.size(1)
+        if T <= P:
+            pos = self.pos_embedding[:, :T]
+        else:
+            # Interpolate positional embedding to handle longer sequences at inference
+            pos = F.interpolate(
+                self.pos_embedding.permute(0, 2, 1),  # (1, D, P)
+                size=T,
+                mode="linear",
+                align_corners=False,
+            ).permute(0, 2, 1)  # (1, T, D)
+        x = x + pos
         x = self.dropout(x)
         return self.transformer(x, c)
 
@@ -102,6 +113,7 @@ class LeWM(nn.Module):
         action_encoder: nn.Module,
         projector: Optional[nn.Module] = None,
         pred_proj: Optional[nn.Module] = None,
+        history_size: int = 3,
     ) -> None:
         super().__init__()
         self.encoder = encoder
@@ -109,6 +121,7 @@ class LeWM(nn.Module):
         self.action_encoder = action_encoder
         self.projector = projector or nn.Identity()
         self.pred_proj = pred_proj or nn.Identity()
+        self.history_size = history_size
 
     def _encode_pixels(self, pixels: torch.Tensor) -> torch.Tensor:
         """Encode a flat batch of pixels into a per-frame embedding ``(N, D)``."""
@@ -247,5 +260,5 @@ class LeWM(nn.Module):
         goal = self.encode(goal)
 
         info["goal_emb"] = goal["emb"]
-        info = self.rollout(info, action_candidates)
+        info = self.rollout(info, action_candidates, history_size=self.history_size)
         return self.criterion(info)

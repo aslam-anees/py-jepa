@@ -1,0 +1,63 @@
+# V-JEPA base configuration
+# Usage: pyjepa train vjepa --config configs/vjepa_base.yaml
+
+model:
+  type: vjepa
+  encoder: vit_small
+  predictor: vit_predictor
+  img_size: 224
+  patch_size: 16
+  num_frames: 16              # video clip length
+  tubelet_size: 2             # temporal patch size (frames per token)
+  pred_depth: 12
+  pred_embed_dim: 384
+  num_mask_tokens: 2
+  use_mask_tokens: true
+  zero_init_mask_tokens: true
+  use_sdpa: true
+  uniform_power: false        # uniform temporal power for positional embeddings
+
+mask:
+  type: multiblock3d
+  num_enc_masks: 1
+  num_pred_masks: 4
+  enc_mask_scale: [0.9, 1.0]
+  pred_mask_scale: [0.15, 0.35]
+  aspect_ratio: [0.75, 1.5]
+  # These must match the model settings:
+  crop_size: 224
+  patch_size: 16
+  num_frames: 16
+  tubelet_size: 2
+
+training:
+  output_dir: ./output/vjepa_small
+  device: auto
+  seed: 42
+  epochs: 200
+  batch_size: 64
+  log_every: 50
+  save_every_epochs: 5
+  keep_last_ckpts: 5
+  resume: true
+
+  # Optimizer
+  lr: 6.0e-4
+  start_lr: 1.0e-4
+  final_lr: 1.0e-6
+  weight_decay: 0.05
+  warmup_epochs: 20
+
+  # EMA
+  momentum_start: 0.998
+  momentum_end: 1.0
+
+  # Loss
+  loss_exp: 1.0
+  reg_coeff: 0.0
+
+  # Mixed precision
+  amp_dtype: bfloat16         # prefer bfloat16 on CUDA SM80+; float32 on MPS
+  grad_clip: 1.0
+
+  compile_model: false

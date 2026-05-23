@@ -195,6 +195,11 @@ class DeviceInfo:
     platform: str
     torch_version: str
 
+    @classmethod
+    def from_current(cls, device: Optional[torch.device] = None) -> "DeviceInfo":
+        """Build a DeviceInfo snapshot for the current (or specified) device."""
+        return device_info(device)
+
     def __str__(self) -> str:
         mem = f"{self.total_memory_mb} MB" if self.total_memory_mb else "n/a"
         return (

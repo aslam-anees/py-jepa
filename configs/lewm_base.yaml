@@ -1,0 +1,63 @@
+# LeWM (LeWorldModel) base configuration
+# Usage: pyjepa train lewm --config configs/lewm_base.yaml
+
+model:
+  type: lewm
+  encoder: vit_small
+  img_size: 84                # typical for robot / Atari observations
+  patch_size: 12
+  action_dim: 4               # dimension of robot action space
+  history_size: 3             # context frames seen by AR predictor
+  emb_dim: 384                # latent embedding dimension
+  action_emb_dim: 64          # action embedding dimension (AdaLN conditioning)
+  pred_depth: 6
+  pred_heads: 6
+  pred_dim_head: 64
+  pred_mlp_dim: 1024
+  pred_hidden_dim: null       # defaults to emb_dim if null
+  projector_hidden: 1024
+  use_projector: true
+  use_pred_proj: true
+
+training:
+  output_dir: ./output/lewm_base
+  device: auto
+  seed: 42
+  epochs: 100
+  batch_size: 128
+  log_every: 50
+  save_every_epochs: 5
+  keep_last_ckpts: 3
+  resume: true
+
+  # Optimizer
+  lr: 3.0e-4
+  weight_decay: 0.01
+  warmup_epochs: 5
+
+  # LeWM-specific
+  history_size: 3             # must match model.history_size
+  num_preds: 5                # prediction steps beyond history window
+                              # dataset window = history_size + num_preds
+
+  # SIGReg (Sketched Isotropic Gaussian Regularizer)
+  sigreg_weight: 0.1          # lambda in L = L_pred + lambda * SIGReg
+  sigreg_knots: 17            # Epps-Pulley test points
+  sigreg_num_proj: 1024       # random 1-D projections
+
+  # Mixed precision
+  amp_dtype: float16
+  grad_clip: 1.0
+
+  compile_model: false
+
+# Planning config (used by WorldModelPolicy / pyjepa plan command)
+planning:
+  planner: cem                # cem | mppi | random
+  horizon: 10
+  num_samples: 512
+  num_elites: 64
+  num_iters: 5
+  action_min: -1.0
+  action_max: 1.0
+  temperature: 0.1            # MPPI temperature

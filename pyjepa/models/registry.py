@@ -236,4 +236,5 @@ def build_lewm(
         action_encoder=action_encoder,
         projector=projector,
         pred_proj=pred_proj,
+        history_size=history_size,
     )

@@ -1,0 +1,1467 @@
+Metadata-Version: 2.4
+Name: pyjepa
+Version: 0.1.0
+Summary: A unified Python library for JEPA, V-JEPA, LeJEPA world models, and physical intelligence research.
+Author: py-jepa contributors
+License:                     GNU GENERAL PUBLIC LICENSE
+                               Version 3, 29 June 2007
+        
+         Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+         Everyone is permitted to copy and distribute verbatim copies
+         of this license document, but changing it is not allowed.
+        
+                                    Preamble
+        
+          The GNU General Public License is a free, copyleft license for
+        software and other kinds of works.
+        
+          The licenses for most software and other practical works are designed
+        to take away your freedom to share and change the works.  By contrast,
+        the GNU General Public License is intended to guarantee your freedom to
+        share and change all versions of a program--to make sure it remains free
+        software for all its users.  We, the Free Software Foundation, use the
+        GNU General Public License for most of our software; it applies also to
+        any other work released this way by its authors.  You can apply it to
+        your programs, too.
+        
+          When we speak of free software, we are referring to freedom, not
+        price.  Our General Public Licenses are designed to make sure that you
+        have the freedom to distribute copies of free software (and charge for
+        them if you wish), that you receive source code or can get it if you
+        want it, that you can change the software or use pieces of it in new
+        free programs, and that you know you can do these things.
+        
+          To protect your rights, we need to prevent others from denying you
+        these rights or asking you to surrender the rights.  Therefore, you have
+        certain responsibilities if you distribute copies of the software, or if
+        you modify it: responsibilities to respect the freedom of others.
+        
+          For example, if you distribute copies of such a program, whether
+        gratis or for a fee, you must pass on to the recipients the same
+        freedoms that you received.  You must make sure that they, too, receive
+        or can get the source code.  And you must show them these terms so they
+        know their rights.
+        
+          Developers that use the GNU GPL protect your rights with two steps:
+        (1) assert copyright on the software, and (2) offer you this License
+        giving you legal permission to copy, distribute and/or modify it.
+        
+          For the developers' and authors' protection, the GPL clearly explains
+        that there is no warranty for this free software.  For both users' and
+        authors' sake, the GPL requires that modified versions be marked as
+        changed, so that their problems will not be attributed erroneously to
+        authors of previous versions.
+        
+          Some devices are designed to deny users access to install or run
+        modified versions of the software inside them, although the manufacturer
+        can do so.  This is fundamentally incompatible with the aim of
+        protecting users' freedom to change the software.  The systematic
+        pattern of such abuse occurs in the area of products for individuals to
+        use, which is precisely where it is most unacceptable.  Therefore, we
+        have designed this version of the GPL to prohibit the practice for those
+        products.  If such problems arise substantially in other domains, we
+        stand ready to extend this provision to those domains in future versions
+        of the GPL, as needed to protect the freedom of users.
+        
+          Finally, every program is threatened constantly by software patents.
+        States should not allow patents to restrict development and use of
+        software on general-purpose computers, but in those that do, we wish to
+        avoid the special danger that patents applied to a free program could
+        make it effectively proprietary.  To prevent this, the GPL assures that
+        patents cannot be used to render the program non-free.
+        
+          The precise terms and conditions for copying, distribution and
+        modification follow.
+        
+                               TERMS AND CONDITIONS
+        
+          0. Definitions.
+        
+          "This License" refers to version 3 of the GNU General Public License.
+        
+          "Copyright" also means copyright-like laws that apply to other kinds of
+        works, such as semiconductor masks.
+        
+          "The Program" refers to any copyrightable work licensed under this
+        License.  Each licensee is addressed as "you".  "Licensees" and
+        "recipients" may be individuals or organizations.
+        
+          To "modify" a work means to copy from or adapt all or part of the work
+        in a fashion requiring copyright permission, other than the making of an
+        exact copy.  The resulting work is called a "modified version" of the
+        earlier work or a work "based on" the earlier work.
+        
+          A "covered work" means either the unmodified Program or a work based
+        on the Program.
+        
+          To "propagate" a work means to do anything with it that, without
+        permission, would make you directly or secondarily liable for
+        infringement under applicable copyright law, except executing it on a
+        computer or modifying a private copy.  Propagation includes copying,
+        distribution (with or without modification), making available to the
+        public, and in some countries other activities as well.
+        
+          To "convey" a work means any kind of propagation that enables other
+        parties to make or receive copies.  Mere interaction with a user through
+        a computer network, with no transfer of a copy, is not conveying.
+        
+          An interactive user interface displays "Appropriate Legal Notices"
+        to the extent that it includes a convenient and prominently visible
+        feature that (1) displays an appropriate copyright notice, and (2)
+        tells the user that there is no warranty for the work (except to the
+        extent that warranties are provided), that licensees may convey the
+        work under this License, and how to view a copy of this License.  If
+        the interface presents a list of user commands or options, such as a
+        menu, a prominent item in the list meets this criterion.
+        
+          1. Source Code.
+        
+          The "source code" for a work means the preferred form of the work
+        for making modifications to it.  "Object code" means any non-source
+        form of a work.
+        
+          A "Standard Interface" means an interface that either is an official
+        standard defined by a recognized standards body, or, in the case of
+        interfaces specified for a particular programming language, one that
+        is widely used among developers working in that language.
+        
+          The "System Libraries" of an executable work include anything, other
+        than the work as a whole, that (a) is included in the normal form of
+        packaging a Major Component, but which is not part of that Major
+        Component, and (b) serves only to enable use of the work with that
+        Major Component, or to implement a Standard Interface for which an
+        implementation is available to the public in source code form.  A
+        "Major Component", in this context, means a major essential component
+        (kernel, window system, and so on) of the specific operating system
+        (if any) on which the executable work runs, or a compiler used to
+        produce the work, or an object code interpreter used to run it.
+        
+          The "Corresponding Source" for a work in object code form means all
+        the source code needed to generate, install, and (for an executable
+        work) run the object code and to modify the work, including scripts to
+        control those activities.  However, it does not include the work's
+        System Libraries, or general-purpose tools or generally available free
+        programs which are used unmodified in performing those activities but
+        which are not part of the work.  For example, Corresponding Source
+        includes interface definition files associated with source files for
+        the work, and the source code for shared libraries and dynamically
+        linked subprograms that the work is specifically designed to require,
+        such as by intimate data communication or control flow between those
+        subprograms and other parts of the work.
+        
+          The Corresponding Source need not include anything that users
+        can regenerate automatically from other parts of the Corresponding
+        Source.
+        
+          The Corresponding Source for a work in source code form is that
+        same work.
+        
+          2. Basic Permissions.
+        
+          All rights granted under this License are granted for the term of
+        copyright on the Program, and are irrevocable provided the stated
+        conditions are met.  This License explicitly affirms your unlimited
+        permission to run the unmodified Program.  The output from running a
+        covered work is covered by this License only if the output, given its
+        content, constitutes a covered work.  This License acknowledges your
+        rights of fair use or other equivalent, as provided by copyright law.
+        
+          You may make, run and propagate covered works that you do not
+        convey, without conditions so long as your license otherwise remains
+        in force.  You may convey covered works to others for the sole purpose
+        of having them make modifications exclusively for you, or provide you
+        with facilities for running those works, provided that you comply with
+        the terms of this License in conveying all material for which you do
+        not control copyright.  Those thus making or running the covered works
+        for you must do so exclusively on your behalf, under your direction
+        and control, on terms that prohibit them from making any copies of
+        your copyrighted material outside their relationship with you.
+        
+          Conveying under any other circumstances is permitted solely under
+        the conditions stated below.  Sublicensing is not allowed; section 10
+        makes it unnecessary.
+        
+          3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+        
+          No covered work shall be deemed part of an effective technological
+        measure under any applicable law fulfilling obligations under article
+        11 of the WIPO copyright treaty adopted on 20 December 1996, or
+        similar laws prohibiting or restricting circumvention of such
+        measures.
+        
+          When you convey a covered work, you waive any legal power to forbid
+        circumvention of technological measures to the extent such circumvention
+        is effected by exercising rights under this License with respect to
+        the covered work, and you disclaim any intention to limit operation or
+        modification of the work as a means of enforcing, against the work's
+        users, your or third parties' legal rights to forbid circumvention of
+        technological measures.
+        
+          4. Conveying Verbatim Copies.
+        
+          You may convey verbatim copies of the Program's source code as you
+        receive it, in any medium, provided that you conspicuously and
+        appropriately publish on each copy an appropriate copyright notice;
+        keep intact all notices stating that this License and any
+        non-permissive terms added in accord with section 7 apply to the code;
+        keep intact all notices of the absence of any warranty; and give all
+        recipients a copy of this License along with the Program.
+        
+          You may charge any price or no price for each copy that you convey,
+        and you may offer support or warranty protection for a fee.
+        
+          5. Conveying Modified Source Versions.
+        
+          You may convey a work based on the Program, or the modifications to
+        produce it from the Program, in the form of source code under the
+        terms of section 4, provided that you also meet all of these conditions:
+        
+            a) The work must carry prominent notices stating that you modified
+            it, and giving a relevant date.
+        
+            b) The work must carry prominent notices stating that it is
+            released under this License and any conditions added under section
+            7.  This requirement modifies the requirement in section 4 to
+            "keep intact all notices".
+        
+            c) You must license the entire work, as a whole, under this
+            License to anyone who comes into possession of a copy.  This
+            License will therefore apply, along with any applicable section 7
+            additional terms, to the whole of the work, and all its parts,
+            regardless of how they are packaged.  This License gives no
+            permission to license the work in any other way, but it does not
+            invalidate such permission if you have separately received it.
+        
+            d) If the work has interactive user interfaces, each must display
+            Appropriate Legal Notices; however, if the Program has interactive
+            interfaces that do not display Appropriate Legal Notices, your
+            work need not make them do so.
+        
+          A compilation of a covered work with other separate and independent
+        works, which are not by their nature extensions of the covered work,
+        and which are not combined with it such as to form a larger program,
+        in or on a volume of a storage or distribution medium, is called an
+        "aggregate" if the compilation and its resulting copyright are not
+        used to limit the access or legal rights of the compilation's users
+        beyond what the individual works permit.  Inclusion of a covered work
+        in an aggregate does not cause this License to apply to the other
+        parts of the aggregate.
+        
+          6. Conveying Non-Source Forms.
+        
+          You may convey a covered work in object code form under the terms
+        of sections 4 and 5, provided that you also convey the
+        machine-readable Corresponding Source under the terms of this License,
+        in one of these ways:
+        
+            a) Convey the object code in, or embodied in, a physical product
+            (including a physical distribution medium), accompanied by the
+            Corresponding Source fixed on a durable physical medium
+            customarily used for software interchange.
+        
+            b) Convey the object code in, or embodied in, a physical product
+            (including a physical distribution medium), accompanied by a
+            written offer, valid for at least three years and valid for as
+            long as you offer spare parts or customer support for that product
+            model, to give anyone who possesses the object code either (1) a
+            copy of the Corresponding Source for all the software in the
+            product that is covered by this License, on a durable physical
+            medium customarily used for software interchange, for a price no
+            more than your reasonable cost of physically performing this
+            conveying of source, or (2) access to copy the
+            Corresponding Source from a network server at no charge.
+        
+            c) Convey individual copies of the object code with a copy of the
+            written offer to provide the Corresponding Source.  This
+            alternative is allowed only occasionally and noncommercially, and
+            only if you received the object code with such an offer, in accord
+            with subsection 6b.
+        
+            d) Convey the object code by offering access from a designated
+            place (gratis or for a charge), and offer equivalent access to the
+            Corresponding Source in the same way through the same place at no
+            further charge.  You need not require recipients to copy the
+            Corresponding Source along with the object code.  If the place to
+            copy the object code is a network server, the Corresponding Source
+            may be on a different server (operated by you or a third party)
+            that supports equivalent copying facilities, provided you maintain
+            clear directions next to the object code saying where to find the
+            Corresponding Source.  Regardless of what server hosts the
+            Corresponding Source, you remain obligated to ensure that it is
+            available for as long as needed to satisfy these requirements.
+        
+            e) Convey the object code using peer-to-peer transmission, provided
+            you inform other peers where the object code and Corresponding
+            Source of the work are being offered to the general public at no
+            charge under subsection 6d.
+        
+          A separable portion of the object code, whose source code is excluded
+        from the Corresponding Source as a System Library, need not be
+        included in conveying the object code work.
+        
+          A "User Product" is either (1) a "consumer product", which means any
+        tangible personal property which is normally used for personal, family,
+        or household purposes, or (2) anything designed or sold for incorporation
+        into a dwelling.  In determining whether a product is a consumer product,
+        doubtful cases shall be resolved in favor of coverage.  For a particular
+        product received by a particular user, "normally used" refers to a
+        typical or common use of that class of product, regardless of the status
+        of the particular user or of the way in which the particular user
+        actually uses, or expects or is expected to use, the product.  A product
+        is a consumer product regardless of whether the product has substantial
+        commercial, industrial or non-consumer uses, unless such uses represent
+        the only significant mode of use of the product.
+        
+          "Installation Information" for a User Product means any methods,
+        procedures, authorization keys, or other information required to install
+        and execute modified versions of a covered work in that User Product from
+        a modified version of its Corresponding Source.  The information must
+        suffice to ensure that the continued functioning of the modified object
+        code is in no case prevented or interfered with solely because
+        modification has been made.
+        
+          If you convey an object code work under this section in, or with, or
+        specifically for use in, a User Product, and the conveying occurs as
+        part of a transaction in which the right of possession and use of the
+        User Product is transferred to the recipient in perpetuity or for a
+        fixed term (regardless of how the transaction is characterized), the
+        Corresponding Source conveyed under this section must be accompanied
+        by the Installation Information.  But this requirement does not apply
+        if neither you nor any third party retains the ability to install
+        modified object code on the User Product (for example, the work has
+        been installed in ROM).
+        
+          The requirement to provide Installation Information does not include a
+        requirement to continue to provide support service, warranty, or updates
+        for a work that has been modified or installed by the recipient, or for
+        the User Product in which it has been modified or installed.  Access to a
+        network may be denied when the modification itself materially and
+        adversely affects the operation of the network or violates the rules and
+        protocols for communication across the network.
+        
+          Corresponding Source conveyed, and Installation Information provided,
+        in accord with this section must be in a format that is publicly
+        documented (and with an implementation available to the public in
+        source code form), and must require no special password or key for
+        unpacking, reading or copying.
+        
+          7. Additional Terms.
+        
+          "Additional permissions" are terms that supplement the terms of this
+        License by making exceptions from one or more of its conditions.
+        Additional permissions that are applicable to the entire Program shall
+        be treated as though they were included in this License, to the extent
+        that they are valid under applicable law.  If additional permissions
+        apply only to part of the Program, that part may be used separately
+        under those permissions, but the entire Program remains governed by
+        this License without regard to the additional permissions.
+        
+          When you convey a copy of a covered work, you may at your option
+        remove any additional permissions from that copy, or from any part of
+        it.  (Additional permissions may be written to require their own
+        removal in certain cases when you modify the work.)  You may place
+        additional permissions on material, added by you to a covered work,
+        for which you have or can give appropriate copyright permission.
+        
+          Notwithstanding any other provision of this License, for material you
+        add to a covered work, you may (if authorized by the copyright holders of
+        that material) supplement the terms of this License with terms:
+        
+            a) Disclaiming warranty or limiting liability differently from the
+            terms of sections 15 and 16 of this License; or
+        
+            b) Requiring preservation of specified reasonable legal notices or
+            author attributions in that material or in the Appropriate Legal
+            Notices displayed by works containing it; or
+        
+            c) Prohibiting misrepresentation of the origin of that material, or
+            requiring that modified versions of such material be marked in
+            reasonable ways as different from the original version; or
+        
+            d) Limiting the use for publicity purposes of names of licensors or
+            authors of the material; or
+        
+            e) Declining to grant rights under trademark law for use of some
+            trade names, trademarks, or service marks; or
+        
+            f) Requiring indemnification of licensors and authors of that
+            material by anyone who conveys the material (or modified versions of
+            it) with contractual assumptions of liability to the recipient, for
+            any liability that these contractual assumptions directly impose on
+            those licensors and authors.
+        
+          All other non-permissive additional terms are considered "further
+        restrictions" within the meaning of section 10.  If the Program as you
+        received it, or any part of it, contains a notice stating that it is
+        governed by this License along with a term that is a further
+        restriction, you may remove that term.  If a license document contains
+        a further restriction but permits relicensing or conveying under this
+        License, you may add to a covered work material governed by the terms
+        of that license document, provided that the further restriction does
+        not survive such relicensing or conveying.
+        
+          If you add terms to a covered work in accord with this section, you
+        must place, in the relevant source files, a statement of the
+        additional terms that apply to those files, or a notice indicating
+        where to find the applicable terms.
+        
+          Additional terms, permissive or non-permissive, may be stated in the
+        form of a separately written license, or stated as exceptions;
+        the above requirements apply either way.
+        
+          8. Termination.
+        
+          You may not propagate or modify a covered work except as expressly
+        provided under this License.  Any attempt otherwise to propagate or
+        modify it is void, and will automatically terminate your rights under
+        this License (including any patent licenses granted under the third
+        paragraph of section 11).
+        
+          However, if you cease all violation of this License, then your
+        license from a particular copyright holder is reinstated (a)
+        provisionally, unless and until the copyright holder explicitly and
+        finally terminates your license, and (b) permanently, if the copyright
+        holder fails to notify you of the violation by some reasonable means
+        prior to 60 days after the cessation.
+        
+          Moreover, your license from a particular copyright holder is
+        reinstated permanently if the copyright holder notifies you of the
+        violation by some reasonable means, this is the first time you have
+        received notice of violation of this License (for any work) from that
+        copyright holder, and you cure the violation prior to 30 days after
+        your receipt of the notice.
+        
+          Termination of your rights under this section does not terminate the
+        licenses of parties who have received copies or rights from you under
+        this License.  If your rights have been terminated and not permanently
+        reinstated, you do not qualify to receive new licenses for the same
+        material under section 10.
+        
+          9. Acceptance Not Required for Having Copies.
+        
+          You are not required to accept this License in order to receive or
+        run a copy of the Program.  Ancillary propagation of a covered work
+        occurring solely as a consequence of using peer-to-peer transmission
+        to receive a copy likewise does not require acceptance.  However,
+        nothing other than this License grants you permission to propagate or
+        modify any covered work.  These actions infringe copyright if you do
+        not accept this License.  Therefore, by modifying or propagating a
+        covered work, you indicate your acceptance of this License to do so.
+        
+          10. Automatic Licensing of Downstream Recipients.
+        
+          Each time you convey a covered work, the recipient automatically
+        receives a license from the original licensors, to run, modify and
+        propagate that work, subject to this License.  You are not responsible
+        for enforcing compliance by third parties with this License.
+        
+          An "entity transaction" is a transaction transferring control of an
+        organization, or substantially all assets of one, or subdividing an
+        organization, or merging organizations.  If propagation of a covered
+        work results from an entity transaction, each party to that
+        transaction who receives a copy of the work also receives whatever
+        licenses to the work the party's predecessor in interest had or could
+        give under the previous paragraph, plus a right to possession of the
+        Corresponding Source of the work from the predecessor in interest, if
+        the predecessor has it or can get it with reasonable efforts.
+        
+          You may not impose any further restrictions on the exercise of the
+        rights granted or affirmed under this License.  For example, you may
+        not impose a license fee, royalty, or other charge for exercise of
+        rights granted under this License, and you may not initiate litigation
+        (including a cross-claim or counterclaim in a lawsuit) alleging that
+        any patent claim is infringed by making, using, selling, offering for
+        sale, or importing the Program or any portion of it.
+        
+          11. Patents.
+        
+          A "contributor" is a copyright holder who authorizes use under this
+        License of the Program or a work on which the Program is based.  The
+        work thus licensed is called the contributor's "contributor version".
+        
+          A contributor's "essential patent claims" are all patent claims
+        owned or controlled by the contributor, whether already acquired or
+        hereafter acquired, that would be infringed by some manner, permitted
+        by this License, of making, using, or selling its contributor version,
+        but do not include claims that would be infringed only as a
+        consequence of further modification of the contributor version.  For
+        purposes of this definition, "control" includes the right to grant
+        patent sublicenses in a manner consistent with the requirements of
+        this License.
+        
+          Each contributor grants you a non-exclusive, worldwide, royalty-free
+        patent license under the contributor's essential patent claims, to
+        make, use, sell, offer for sale, import and otherwise run, modify and
+        propagate the contents of its contributor version.
+        
+          In the following three paragraphs, a "patent license" is any express
+        agreement or commitment, however denominated, not to enforce a patent
+        (such as an express permission to practice a patent or covenant not to
+        sue for patent infringement).  To "grant" such a patent license to a
+        party means to make such an agreement or commitment not to enforce a
+        patent against the party.
+        
+          If you convey a covered work, knowingly relying on a patent license,
+        and the Corresponding Source of the work is not available for anyone
+        to copy, free of charge and under the terms of this License, through a
+        publicly available network server or other readily accessible means,
+        then you must either (1) cause the Corresponding Source to be so
+        available, or (2) arrange to deprive yourself of the benefit of the
+        patent license for this particular work, or (3) arrange, in a manner
+        consistent with the requirements of this License, to extend the patent
+        license to downstream recipients.  "Knowingly relying" means you have
+        actual knowledge that, but for the patent license, your conveying the
+        covered work in a country, or your recipient's use of the covered work
+        in a country, would infringe one or more identifiable patents in that
+        country that you have reason to believe are valid.
+        
+          If, pursuant to or in connection with a single transaction or
+        arrangement, you convey, or propagate by procuring conveyance of, a
+        covered work, and grant a patent license to some of the parties
+        receiving the covered work authorizing them to use, propagate, modify
+        or convey a specific copy of the covered work, then the patent license
+        you grant is automatically extended to all recipients of the covered
+        work and works based on it.
+        
+          A patent license is "discriminatory" if it does not include within
+        the scope of its coverage, prohibits the exercise of, or is
+        conditioned on the non-exercise of one or more of the rights that are
+        specifically granted under this License.  You may not convey a covered
+        work if you are a party to an arrangement with a third party that is
+        in the business of distributing software, under which you make payment
+        to the third party based on the extent of your activity of conveying
+        the work, and under which the third party grants, to any of the
+        parties who would receive the covered work from you, a discriminatory
+        patent license (a) in connection with copies of the covered work
+        conveyed by you (or copies made from those copies), or (b) primarily
+        for and in connection with specific products or compilations that
+        contain the covered work, unless you entered into that arrangement,
+        or that patent license was granted, prior to 28 March 2007.
+        
+          Nothing in this License shall be construed as excluding or limiting
+        any implied license or other defenses to infringement that may
+        otherwise be available to you under applicable patent law.
+        
+          12. No Surrender of Others' Freedom.
+        
+          If conditions are imposed on you (whether by court order, agreement or
+        otherwise) that contradict the conditions of this License, they do not
+        excuse you from the conditions of this License.  If you cannot convey a
+        covered work so as to satisfy simultaneously your obligations under this
+        License and any other pertinent obligations, then as a consequence you may
+        not convey it at all.  For example, if you agree to terms that obligate you
+        to collect a royalty for further conveying from those to whom you convey
+        the Program, the only way you could satisfy both those terms and this
+        License would be to refrain entirely from conveying the Program.
+        
+          13. Use with the GNU Affero General Public License.
+        
+          Notwithstanding any other provision of this License, you have
+        permission to link or combine any covered work with a work licensed
+        under version 3 of the GNU Affero General Public License into a single
+        combined work, and to convey the resulting work.  The terms of this
+        License will continue to apply to the part which is the covered work,
+        but the special requirements of the GNU Affero General Public License,
+        section 13, concerning interaction through a network will apply to the
+        combination as such.
+        
+          14. Revised Versions of this License.
+        
+          The Free Software Foundation may publish revised and/or new versions of
+        the GNU General Public License from time to time.  Such new versions will
+        be similar in spirit to the present version, but may differ in detail to
+        address new problems or concerns.
+        
+          Each version is given a distinguishing version number.  If the
+        Program specifies that a certain numbered version of the GNU General
+        Public License "or any later version" applies to it, you have the
+        option of following the terms and conditions either of that numbered
+        version or of any later version published by the Free Software
+        Foundation.  If the Program does not specify a version number of the
+        GNU General Public License, you may choose any version ever published
+        by the Free Software Foundation.
+        
+          If the Program specifies that a proxy can decide which future
+        versions of the GNU General Public License can be used, that proxy's
+        public statement of acceptance of a version permanently authorizes you
+        to choose that version for the Program.
+        
+          Later license versions may give you additional or different
+        permissions.  However, no additional obligations are imposed on any
+        author or copyright holder as a result of your choosing to follow a
+        later version.
+        
+          15. Disclaimer of Warranty.
+        
+          THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+        APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+        HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+        OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+        THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+        PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+        IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+        ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+        
+          16. Limitation of Liability.
+        
+          IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+        WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+        THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+        GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+        USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+        DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+        PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+        EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+        SUCH DAMAGES.
+        
+          17. Interpretation of Sections 15 and 16.
+        
+          If the disclaimer of warranty and limitation of liability provided
+        above cannot be given local legal effect according to their terms,
+        reviewing courts shall apply local law that most closely approximates
+        an absolute waiver of all civil liability in connection with the
+        Program, unless a warranty or assumption of liability accompanies a
+        copy of the Program in return for a fee.
+        
+                             END OF TERMS AND CONDITIONS
+        
+                    How to Apply These Terms to Your New Programs
+        
+          If you develop a new program, and you want it to be of the greatest
+        possible use to the public, the best way to achieve this is to make it
+        free software which everyone can redistribute and change under these terms.
+        
+          To do so, attach the following notices to the program.  It is safest
+        to attach them to the start of each source file to most effectively
+        state the exclusion of warranty; and each file should have at least
+        the "copyright" line and a pointer to where the full notice is found.
+        
+            <one line to give the program's name and a brief idea of what it does.>
+            Copyright (C) <year>  <name of author>
+        
+            This program is free software: you can redistribute it and/or modify
+            it under the terms of the GNU General Public License as published by
+            the Free Software Foundation, either version 3 of the License, or
+            (at your option) any later version.
+        
+            This program is distributed in the hope that it will be useful,
+            but WITHOUT ANY WARRANTY; without even the implied warranty of
+            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+            GNU General Public License for more details.
+        
+            You should have received a copy of the GNU General Public License
+            along with this program.  If not, see <https://www.gnu.org/licenses/>.
+        
+        Also add information on how to contact you by electronic and paper mail.
+        
+          If the program does terminal interaction, make it output a short
+        notice like this when it starts in an interactive mode:
+        
+            <program>  Copyright (C) <year>  <name of author>
+            This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+            This is free software, and you are welcome to redistribute it
+            under certain conditions; type `show c' for details.
+        
+        The hypothetical commands `show w' and `show c' should show the appropriate
+        parts of the General Public License.  Of course, your program's commands
+        might be different; for a GUI interface, you would use an "about box".
+        
+          You should also get your employer (if you work as a programmer) or school,
+        if any, to sign a "copyright disclaimer" for the program, if necessary.
+        For more information on this, and how to apply and follow the GNU GPL, see
+        <https://www.gnu.org/licenses/>.
+        
+          The GNU General Public License does not permit incorporating your program
+        into proprietary programs.  If your program is a subroutine library, you
+        may consider it more useful to permit linking proprietary applications with
+        the library.  If this is what you want to do, use the GNU Lesser General
+        Public License instead of this License.  But first, please read
+        <https://www.gnu.org/licenses/why-not-lgpl.html>.
+        
+Project-URL: Homepage, https://github.com/your-org/py-jepa
+Project-URL: Documentation, https://github.com/your-org/py-jepa/blob/main/README.md
+Project-URL: Issues, https://github.com/your-org/py-jepa/issues
+Keywords: jepa,v-jepa,i-jepa,lewm,world-model,self-supervised-learning,physical-intelligence,embedding-prediction,robotics,vision-transformer
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.1
+Requires-Dist: numpy>=1.23
+Requires-Dist: einops>=0.7
+Requires-Dist: tqdm>=4.66
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: vision
+Requires-Dist: torchvision>=0.16; extra == "vision"
+Requires-Dist: Pillow>=10.0; extra == "vision"
+Provides-Extra: video
+Requires-Dist: torchvision>=0.16; extra == "video"
+Requires-Dist: decord>=0.6; platform_system != "Darwin" and extra == "video"
+Requires-Dist: av>=11.0; extra == "video"
+Provides-Extra: data
+Requires-Dist: h5py>=3.10; extra == "data"
+Requires-Dist: datasets>=2.16; extra == "data"
+Provides-Extra: train
+Requires-Dist: wandb>=0.16; extra == "train"
+Requires-Dist: tensorboard>=2.15; extra == "train"
+Provides-Extra: planning
+Requires-Dist: scipy>=1.11; extra == "planning"
+Provides-Extra: all
+Requires-Dist: pyjepa[data,planning,train,video,vision]; extra == "all"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.0; extra == "dev"
+Dynamic: license-file
+
+# py-jepa
+
+A unified Python library for Joint Embedding Predictive Architecture (JEPA) models, LeWorldModel (LeWM) world models, and physical intelligence research.
+
+`pyjepa` provides one consistent API covering pre-training (I-JEPA, V-JEPA), end-to-end world-model training (LeWM), finetuning (linear probe, attentive pooler), model-predictive planning (CEM, MPPI), and inference — running identically on Apple Silicon (Metal/MPS), NVIDIA CUDA, and plain CPU.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Architecture Overview](#architecture-overview)
+- [Supported Hardware](#supported-hardware)
+- [Training Guide](#training-guide)
+- [Finetuning](#finetuning)
+- [Planning](#planning)
+- [Inference](#inference)
+- [Custom Models](#custom-models)
+- [Configuration](#configuration)
+- [CLI Reference](#cli-reference)
+- [Performance Notes](#performance-notes)
+- [Citation](#citation)
+
+---
+
+## Overview
+
+`pyjepa` unifies three families of models under one clean API:
+
+| Model | Paper | Key idea |
+|-------|-------|----------|
+| **I-JEPA** | Assran et al., CVPR 2023 | Predict representations of masked image regions in latent space (not pixel space). An EMA target encoder prevents collapse. |
+| **V-JEPA** | Bardes et al., arXiv 2024 | Extends I-JEPA to video with 3-D spatiotemporal masking (tube + multi-block). |
+| **LeWM** | Maes, Le Lidec et al., arXiv 2026 | End-to-end JEPA world model trained from raw pixels with just two losses: prediction MSE and SIGReg. No EMA encoder. ~15 M parameters. Trains on a single GPU in hours. |
+
+All three share the same `VisionTransformer` encoder backbone, the same optimizer and scheduler utilities, and a common checkpoint format. You can pre-train with I-JEPA, finetune a classifier head, and then adapt the encoder into a LeWM world model — with no code changes beyond swapping the training wrapper.
+
+---
+
+## Installation
+
+### From PyPI
+
+```bash
+pip install pyjepa
+```
+
+Install with optional extras for your use case:
+
+```bash
+pip install pyjepa[vision]    # torchvision + Pillow for image datasets
+pip install pyjepa[video]     # av + decord for video loading
+pip install pyjepa[data]      # h5py + datasets for trajectory data
+pip install pyjepa[train]     # wandb + tensorboard experiment tracking
+pip install pyjepa[planning]  # scipy for advanced planning utilities
+pip install pyjepa[all]       # everything above
+```
+
+### From Source
+
+```bash
+git clone https://github.com/your-org/py-jepa.git
+cd py-jepa
+pip install -e ".[dev]"       # editable install + dev tools (pytest, ruff, black)
+```
+
+### Apple Silicon (macOS, M1/M2/M3/M4)
+
+No extra configuration needed. `pyjepa` auto-detects the MPS (Metal Performance Shaders) backend and uses it transparently. Install PyTorch 2.1+ from [pytorch.org](https://pytorch.org) with the standard macOS wheel — the MPS backend is included.
+
+```bash
+pip install torch torchvision  # MPS included in standard macOS PyTorch wheel
+pip install pyjepa[vision]
+```
+
+### Windows (CUDA)
+
+Install the CUDA-enabled PyTorch wheel for your toolkit version first:
+
+```bash
+# Example for CUDA 12.1 — see pytorch.org for the correct command for your setup
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+pip install pyjepa[all]
+```
+
+---
+
+## Quick Start
+
+### I-JEPA Image Pre-training
+
+```python
+import torch
+from torch.utils.data import DataLoader
+import pyjepa
+
+# Build model (encoder + EMA target + predictor)
+model = pyjepa.create_jepa("ijepa", encoder="vit_small", img_size=224)
+
+# Mask collator: 1 context mask + 4 prediction targets per image
+collator = pyjepa.MultiBlockMaskCollator(crop_size=224, patch_size=16)
+
+loader = DataLoader(your_dataset, batch_size=256, collate_fn=collator)
+
+# One-call training
+pyjepa.train_ijepa(model, loader, epochs=300, lr=1e-3, output_dir="./output/ijepa")
+```
+
+### V-JEPA Video Pre-training
+
+```python
+import pyjepa
+
+model = pyjepa.create_jepa(
+    "vjepa", encoder="vit_small", img_size=224,
+    num_frames=16, tubelet_size=2
+)
+collator = pyjepa.MultiBlock3DMaskCollator(
+    crop_size=224, patch_size=16, num_frames=16, tubelet_size=2
+)
+loader = DataLoader(your_video_dataset, batch_size=32, collate_fn=collator)
+pyjepa.train_vjepa(model, loader, epochs=200, lr=6e-4, output_dir="./output/vjepa")
+```
+
+### LeWM World Model Training
+
+```python
+from pyjepa import vit_small, build_lewm, train_lewm
+from pyjepa.data import TrajectoryDataset
+
+# Build world model
+encoder = vit_small(img_size=84, patch_size=12)
+model = build_lewm(encoder, action_dim=4, emb_dim=384, history_size=3)
+
+# Trajectory dataset: episodes of (observations, actions)
+dataset = TrajectoryDataset(episodes, obs_key="pixels", act_key="action",
+                            window=8)  # history_size + num_preds
+loader = DataLoader(dataset, batch_size=128)
+train_lewm(model, loader, epochs=100, lr=3e-4, sigreg_weight=0.1,
+           output_dir="./output/lewm")
+```
+
+### LeWM Planning with CEM
+
+```python
+import torch
+from pyjepa import build_lewm, vit_small, CEMPlanner, PlanConfig
+
+model = build_lewm(vit_small(img_size=84, patch_size=12), action_dim=4,
+                   emb_dim=384, history_size=3)
+model.eval()
+
+# Current observation window and goal image
+info = {
+    "pixels": torch.randn(1, 3, 3, 84, 84),   # (B, T_ctx, C, H, W)
+    "goal":   torch.randn(1, 1, 3, 84, 84),   # (B, 1, C, H, W)
+}
+
+planner = CEMPlanner(PlanConfig(
+    horizon=10, action_dim=4,
+    num_samples=512, num_elites=64, num_iters=5,
+))
+best_action_seq = planner(model, info)   # (H, A)
+action_to_execute = best_action_seq[0]  # first action
+```
+
+---
+
+## Architecture Overview
+
+### I-JEPA
+
+I-JEPA (Image JEPA) trains a `VisionTransformer` encoder end-to-end with a masked prediction objective in latent space. Given an image, a context block is encoded by the online encoder; 4 target blocks are encoded by an EMA (exponential moving average) copy of the encoder. A lightweight cross-attention predictor maps context embeddings to predicted target embeddings.
+
+The training objective is:
+
+```
+L_JEPA = (1/M) * sum_m ||predictor(enc(x_ctx), mask_m) - sg(enc_ema(x, mask_m))||^2
+```
+
+where `sg(·)` is stop-gradient on the EMA branch. The variance regularizer `VR(z) = mean(relu(1 - sqrt(var(z) + eps)))` can optionally penalize representation collapse.
+
+### V-JEPA
+
+V-JEPA extends I-JEPA to video by replacing 2-D spatial masking with 3-D spatiotemporal masking. Masks are sampled as volumetric blocks (tubes) across the temporal dimension; the predictor must recover embeddings of masked space-time regions conditioned on the visible context. The architecture is otherwise identical — the `VisionTransformer` switches to 3-D tubelet patch embeddings when `num_frames > 1`.
+
+### LeWM (LeWorldModel)
+
+LeWM trains a world model entirely end-to-end from pixels with two losses:
+
+```
+L = ||AR_predictor(enc(x_t), a_t) - enc(x_{t+1})||^2  +  lambda * SIGReg(enc(x))
+```
+
+**SIGReg** (Sketched Isotropic Gaussian Regularizer) prevents representation collapse by matching the empirical characteristic function of latent embeddings to that of a standard Gaussian, using random 1-D projections:
+
+```
+SIGReg(Z) = (1/K) * sum_k | (1/N) * sum_n exp(i * w_k^T z_n) - exp(-||w_k||^2/2) |^2
+```
+
+The autoregressive predictor (`ARPredictor`) is a causal Transformer conditioned on action embeddings via AdaLN-zero blocks, making next-state predictions that are used directly for model-predictive planning.
+
+---
+
+## Supported Hardware
+
+| Backend | Device string | AMP dtype | `torch.compile` | Notes |
+|---------|--------------|-----------|-----------------|-------|
+| NVIDIA CUDA | `cuda` / `cuda:N` | `float16` or `bfloat16` (SM80+) | Supported | Flash-Attention 2 via SDPA |
+| Apple Silicon MPS | `mps` | `float32` (MPS autocast experimental) | Not recommended | Math SDPA kernel; no cuda.sdp_kernel context |
+| CPU | `cpu` | `float32` | Supported (slow) | Fallback for testing |
+| AMD ROCm | `cuda` (HIP) | `float16` | Supported | Detected via `torch.version.hip` |
+| Intel XPU | `xpu` | — | — | Basic support via `torch.xpu` |
+
+`pyjepa` auto-selects the device via `PYJEPA_DEVICE` environment variable or `get_device()`:
+
+```python
+import pyjepa
+device = pyjepa.get_device()              # auto: CUDA → MPS → CPU
+device = pyjepa.get_device("mps")        # explicit
+device = pyjepa.get_device("cuda:1")     # specific GPU
+
+info = pyjepa.DeviceInfo.from_current()  # structured hardware snapshot
+print(info)  # shows memory, bf16, sdpa, compile support
+```
+
+---
+
+## Training Guide
+
+### IJEPATrainer
+
+```python
+from pyjepa.training import IJEPATrainer, IJEPAConfig, TrainConfig
+
+train_cfg = TrainConfig(
+    output_dir="./output/ijepa",
+    device="auto",          # or "cuda", "mps", "cpu"
+    epochs=300,
+    amp_dtype="float16",    # "float16", "bfloat16", "float32"
+    grad_clip=10.0,
+    compile_model=False,    # True only on CUDA; MPS not supported
+    save_every_epochs=10,
+    keep_last_ckpts=3,
+)
+
+ijepa_cfg = IJEPAConfig(
+    lr=1e-3,
+    start_lr=2e-4,
+    final_lr=1e-6,
+    weight_decay=0.04,
+    warmup_epochs=40,
+    momentum_start=0.996,   # EMA momentum schedule
+    momentum_end=1.0,
+    loss_exp=1.0,
+    reg_coeff=0.0,          # variance regularizer weight
+)
+
+trainer = IJEPATrainer(
+    model, train_cfg, ijepa_cfg,
+    iterations_per_epoch=len(loader),
+)
+trainer.fit(loader)
+```
+
+Hook into the training loop with callbacks:
+
+```python
+@trainer.on_step
+def log_step(metrics):
+    print(f"step {metrics['step']}: loss={metrics['loss']:.4f}")
+
+@trainer.on_epoch_end
+def checkpoint_epoch(epoch, metrics):
+    if metrics["val_loss"] < best_val:
+        trainer.save_checkpoint("best.pth")
+```
+
+### LeWMTrainer
+
+```python
+from pyjepa.training import LeWMTrainer, LeWMConfig, TrainConfig
+
+lewm_cfg = LeWMConfig(
+    lr=3e-4,
+    history_size=3,
+    num_preds=5,
+    sigreg_weight=0.1,
+    sigreg_knots=17,
+    sigreg_num_proj=1024,
+)
+trainer = LeWMTrainer(model, TrainConfig(output_dir="./output/lewm"), lewm_cfg)
+trainer.fit(loader)
+```
+
+Each training batch must contain a `window = history_size + num_preds` observation window. Configure your `TrajectoryDataset` accordingly:
+
+```python
+dataset = TrajectoryDataset(episodes, obs_key="pixels", act_key="action",
+                            window=history_size + num_preds)
+```
+
+### One-Call Training
+
+For simple use cases that do not need custom callbacks:
+
+```python
+pyjepa.train_ijepa(model, loader, epochs=300, lr=1e-3, output_dir="./out")
+pyjepa.train_vjepa(model, loader, epochs=200, lr=6e-4, output_dir="./out")
+pyjepa.train_lewm(model, loader, epochs=100, lr=3e-4, sigreg_weight=0.1,
+                  history_size=3, num_preds=5, output_dir="./out")
+```
+
+### Config-Driven Training (YAML)
+
+```bash
+pyjepa train ijepa --config configs/ijepa_base.yaml
+pyjepa train vjepa --config configs/vjepa_base.yaml
+pyjepa train lewm  --config configs/lewm_base.yaml
+```
+
+Load and extend configs programmatically:
+
+```python
+from pyjepa import load_config, save_config
+
+cfg = load_config("configs/ijepa_base.yaml", overrides={"training.lr": 5e-4})
+print(cfg.training.lr)     # 0.0005
+print(cfg["training.lr"])  # also works
+```
+
+### Distributed Training
+
+`pyjepa` uses `torch.distributed` for multi-GPU training. Launch with `torchrun`:
+
+```bash
+torchrun --nproc_per_node=8 train.py --config configs/ijepa_base.yaml
+```
+
+Initialize in your script:
+
+```python
+from pyjepa.utils.distributed import init_distributed, AllReduce
+init_distributed()  # reads RANK/WORLD_SIZE/MASTER_ADDR from environment
+```
+
+---
+
+## Finetuning
+
+### Linear Probe
+
+```python
+from pyjepa.training.finetune import LinearProbeTrainer, FinetuneConfig
+
+ft_cfg = FinetuneConfig(
+    num_classes=1000,
+    head="linear",            # "linear" or "attentive"
+    freeze_encoder=True,
+    lr=1e-3,
+    label_smoothing=0.1,
+)
+trainer = LinearProbeTrainer(ijepa_model.encoder, train_cfg, ft_cfg)
+trainer.fit(train_loader, val_loader)
+```
+
+### Attentive Pooler
+
+The attentive pooler uses learned query tokens + cross-attention over patch tokens — stronger than a single CLS token:
+
+```python
+ft_cfg = FinetuneConfig(num_classes=1000, head="attentive", freeze_encoder=True)
+```
+
+### One-Call Finetuning
+
+```python
+pyjepa.finetune_classifier(
+    encoder=model.encoder,
+    train_loader=train_loader,
+    val_loader=val_loader,
+    num_classes=1000,
+    head="attentive",
+    freeze_encoder=True,
+    epochs=100,
+    lr=1e-3,
+    output_dir="./output/finetune",
+)
+```
+
+The `AttentivePooler` and `AttentiveClassifier` are also available as standalone modules:
+
+```python
+from pyjepa import AttentivePooler, AttentiveClassifier
+
+pooler = AttentivePooler(embed_dim=384, num_heads=6, num_query_tokens=1)
+cls = AttentiveClassifier(embed_dim=384, num_heads=6, num_classes=1000)
+```
+
+---
+
+## Planning
+
+All planners share a unified `PlanConfig` and implement `__call__(model, info, action_init) -> Tensor(H, A)`.
+
+```python
+from pyjepa import PlanConfig, CEMPlanner, MPPIPlanner, RandomShootingPlanner
+
+cfg = PlanConfig(
+    horizon=10,          # planning horizon (number of steps)
+    action_dim=4,        # action space dimension
+    num_samples=512,     # candidate trajectories per iteration
+    num_elites=64,       # elite fraction (CEM only)
+    num_iters=5,         # optimization iterations
+    action_min=-1.0,     # action bounds
+    action_max=1.0,
+    temperature=0.1,     # softmax temperature (MPPI only)
+)
+
+cem  = CEMPlanner(cfg)
+mppi = MPPIPlanner(cfg)
+rs   = RandomShootingPlanner(cfg)
+```
+
+**Cross-Entropy Method (CEM):** Iteratively refits a diagonal Gaussian to the top-K lowest-cost candidates. Deterministic convergence, good for short horizons.
+
+**MPPI:** Soft-min reweighting — every candidate contributes to the mean update proportional to `exp(-cost / temperature)`. No hard cutoff; smoother gradient.
+
+**Random Shooting:** Single-shot sampling. Cheap; useful as a warm-start for CEM or as a baseline.
+
+### WorldModelPolicy
+
+`WorldModelPolicy` wraps any world model + planner into a stateful policy that can be stepped at each environment interaction:
+
+```python
+from pyjepa.planning import WorldModelPolicy, PlanConfig, CEMPlanner
+
+policy = WorldModelPolicy(
+    model=lewm_model,
+    solver=CEMPlanner(PlanConfig(horizon=10, action_dim=4, num_samples=512)),
+    config=PlanConfig(horizon=10, action_dim=4),
+)
+
+# At each environment step:
+obs = env.reset()
+action = policy.act({"pixels": obs_tensor, "goal": goal_tensor})
+```
+
+---
+
+## Inference
+
+### Embedding Images and Video
+
+```python
+from pyjepa import Encoder, embed_image, embed_video
+
+# Stateful wrapper with optional pooling and L2 normalization
+enc = Encoder(ijepa_model.encoder, device="mps", pooling="mean", normalize=True)
+feats = enc.embed_image(images)    # (B, D)
+feats = enc.embed_video(video)     # (B, D)
+
+# Functional helpers (no state)
+feats = embed_image(ijepa_model.encoder, images)
+feats = embed_video(ijepa_model.encoder, video_clips)
+```
+
+### Latent Rollout
+
+```python
+from pyjepa import rollout_latent
+from pyjepa.inference import Rollout
+
+# Functional: roll out a full action sequence at once
+initial = {"pixels": obs_tensor}  # (B, T, C, H, W)
+predicted_embs = rollout_latent(lewm_model, initial, actions, history_size=3)
+# returns (B, T_total, D)
+
+# Stateful: step one action at a time
+roll = Rollout(lewm_model, history_size=3)
+roll.reset(initial_obs_tensor)
+emb_1 = roll.step(action_1)
+emb_2 = roll.step(action_2)
+```
+
+### Surprise Scoring
+
+The surprise score measures how well the world model predicts the next observation — a proxy for physical plausibility or anomaly detection:
+
+```python
+from pyjepa import surprise_score
+
+# Per-step prediction error along a trajectory
+scores = surprise_score(lewm_model, info, history_size=3, reduction="per_step")
+# (B, T)
+
+# Mean error over whole trajectory
+mean_err = surprise_score(lewm_model, info, reduction="mean")
+# (B,)
+```
+
+---
+
+## Custom Models
+
+### Registering a Custom Encoder
+
+```python
+from pyjepa import register_encoder, create_encoder
+from pyjepa.models.vit import VisionTransformer
+
+@register_encoder("my_vit_128")
+def my_vit(**kwargs):
+    return VisionTransformer(
+        img_size=128, patch_size=8,
+        embed_dim=512, depth=10, num_heads=8,
+        **kwargs
+    )
+
+# Now usable everywhere by name
+enc = create_encoder("my_vit_128")
+model = pyjepa.create_jepa("ijepa", encoder="my_vit_128", img_size=128, patch_size=8)
+```
+
+### Registering a Custom Predictor
+
+```python
+from pyjepa import register_predictor
+import torch.nn as nn
+
+@register_predictor("my_mlp_predictor")
+class MLPPredictor(nn.Module):
+    def __init__(self, embed_dim, **kwargs):
+        super().__init__()
+        self.net = nn.Sequential(nn.Linear(embed_dim, embed_dim * 4),
+                                 nn.GELU(), nn.Linear(embed_dim * 4, embed_dim))
+
+    def forward(self, x, masks_x=None, masks=None):
+        return [self.net(xi) for xi in x]
+```
+
+### Listing Available Models
+
+```python
+import pyjepa
+print(pyjepa.available_encoders())   # ['vit_base', 'vit_giant', 'vit_huge', ...]
+print(pyjepa.available_predictors()) # ['ar_predictor', 'vit_predictor']
+print(pyjepa.available_jepas())      # user-registered JEPAs
+```
+
+---
+
+## Configuration
+
+Example I-JEPA config (`configs/ijepa_base.yaml`):
+
+```yaml
+model:
+  type: ijepa
+  encoder: vit_base
+  predictor: vit_predictor
+  img_size: 224
+  patch_size: 16
+  pred_depth: 6
+  pred_embed_dim: 384
+
+mask:
+  type: multiblock
+  num_enc_masks: 1
+  num_pred_masks: 4
+  enc_mask_scale: [0.85, 1.0]
+  pred_mask_scale: [0.15, 0.2]
+  aspect_ratio: [0.75, 1.5]
+
+training:
+  output_dir: ./output/ijepa_base
+  device: auto
+  epochs: 300
+  batch_size: 512
+  lr: 0.001
+  weight_decay: 0.04
+  warmup_epochs: 40
+  momentum_start: 0.996
+  momentum_end: 1.0
+  amp_dtype: float16
+  grad_clip: 10.0
+  save_every_epochs: 10
+```
+
+Example LeWM config (`configs/lewm_base.yaml`):
+
+```yaml
+model:
+  type: lewm
+  encoder: vit_small
+  img_size: 84
+  patch_size: 12
+  action_dim: 4
+  history_size: 3
+  emb_dim: 384
+  action_emb_dim: 64
+  pred_depth: 6
+  pred_heads: 6
+  pred_mlp_dim: 1024
+
+training:
+  output_dir: ./output/lewm_base
+  device: auto
+  epochs: 100
+  batch_size: 128
+  lr: 0.0003
+  history_size: 3
+  num_preds: 5
+  sigreg_weight: 0.1
+  amp_dtype: float16
+  grad_clip: 1.0
+```
+
+---
+
+## CLI Reference
+
+```bash
+# Show device and version info
+pyjepa info
+
+# List all registered encoders, predictors, and jepas
+pyjepa list
+
+# Train with a YAML config
+pyjepa train ijepa --config configs/ijepa_base.yaml
+pyjepa train vjepa --config configs/vjepa_base.yaml
+pyjepa train lewm  --config configs/lewm_base.yaml
+```
+
+---
+
+## Performance Notes
+
+### Automatic Mixed Precision
+
+`pyjepa` selects AMP dtype automatically based on hardware:
+
+- **CUDA SM80+ (A100, H100):** `bfloat16` (more stable range, no loss scaling needed)
+- **CUDA SM70- (V100, T4):** `float16` with gradient scaler
+- **MPS (Apple Silicon):** `float32` (MPS autocast is experimental; disabled by default)
+- **CPU:** `float32`
+
+Override with:
+
+```python
+trainer = IJEPATrainer(model, TrainConfig(amp_dtype="bfloat16"), ijepa_cfg)
+```
+
+### torch.compile
+
+`torch.compile` is enabled on CUDA only. On Apple Silicon MPS, it is disabled by default due to graph-break issues with attention masking. Check at runtime:
+
+```python
+from pyjepa.device import supports_compile
+print(supports_compile())  # True on CUDA, False on MPS-only machines
+```
+
+### DataLoader on Apple Silicon
+
+```python
+from pyjepa.device import pin_memory_supported, get_device
+device = get_device()
+
+loader = DataLoader(
+    dataset, batch_size=256,
+    num_workers=4,
+    pin_memory=pin_memory_supported(device),  # True only on CUDA
+)
+```
+
+### Gradient Scaler
+
+`get_grad_scaler()` returns a real `GradScaler` on CUDA with fp16, and a no-op scaler on MPS/CPU/bfloat16, so training loop code is device-agnostic:
+
+```python
+from pyjepa.device import get_grad_scaler
+scaler = get_grad_scaler(device, enabled=(amp_dtype == "float16"))
+
+with pyjepa.autocast(device, dtype=torch.float16):
+    loss = model(batch)
+scaler.scale(loss).backward()
+scaler.step(optimizer)
+scaler.update()
+```
+
+---
+
+## Citation
+
+If you use `pyjepa` in your research, please cite the relevant works:
+
+### I-JEPA
+
+```bibtex
+@inproceedings{assran2023ijepa,
+  title     = {Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture},
+  author    = {Mahmoud Assran and Quentin Duval and Ishan Misra and Piotr Bojanowski
+               and Pascal Vincent and Michael Rabbat and Yann LeCun and Nicolas Ballas},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2023},
+}
+```
+
+### V-JEPA
+
+```bibtex
+@article{bardes2024vjepa,
+  title   = {V-JEPA: Latent Video Prediction for Visual Representation Learning},
+  author  = {Adrien Bardes and Quentin Garrido and Jean Ponce and Xinlei Chen
+             and Michael Rabbat and Yann LeCun and Mido Assran and Nicolas Ballas},
+  journal = {arXiv preprint arXiv:2404.08471},
+  year    = {2024},
+}
+```
+
+### LeWM (LeWorldModel)
+
+```bibtex
+@article{maes2026lewm,
+  title   = {LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels},
+  author  = {Quentin Maes and Etienne Le Lidec and others},
+  journal = {arXiv preprint arXiv:2603.19312},
+  year    = {2026},
+  url     = {https://le-wm.github.io/},
+}
+```
+
+---
+
+## License
+
+Apache 2.0. See [LICENSE](LICENSE) for details.
