@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyjepa"
+version = "0.1.0"
+description = "A unified Python library for JEPA, V-JEPA, LeJEPA world models, and physical intelligence research."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "py-jepa contributors"},
+]
+requires-python = ">=3.9"
+keywords = [
+    "jepa", "v-jepa", "i-jepa", "lewm", "world-model",
+    "self-supervised-learning", "physical-intelligence",
+    "embedding-prediction", "robotics", "vision-transformer",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "torch>=2.1",
+    "numpy>=1.23",
+    "einops>=0.7",
+    "tqdm>=4.66",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+vision = [
+    "torchvision>=0.16",
+    "Pillow>=10.0",
+]
+video = [
+    "torchvision>=0.16",
+    "decord>=0.6 ; platform_system != 'Darwin'",
+    "av>=11.0",
+]
+data = [
+    "h5py>=3.10",
+    "datasets>=2.16",
+]
+train = [
+    "wandb>=0.16",
+    "tensorboard>=2.15",
+]
+planning = [
+    "scipy>=1.11",
+]
+all = [
+    "pyjepa[vision,video,data,train,planning]",
+]
+dev = [
+    "pytest>=7.4",
+    "ruff>=0.4",
+    "black>=24.0",
+]
+
+[project.scripts]
+pyjepa = "pyjepa.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/py-jepa"
+Documentation = "https://github.com/your-org/py-jepa/blob/main/README.md"
+Issues = "https://github.com/your-org/py-jepa/issues"
+
+[tool.setuptools.packages.find]
+include = ["pyjepa*"]
+exclude = ["tests*", "examples*", "configs*"]
+
+[tool.setuptools.package-data]
+pyjepa = ["configs/*.yaml"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py39"
+
+[tool.ruff.lint]
+extend-select = ["I", "B", "UP"]
+ignore = ["E501", "B008", "B905"]
+
+[tool.black]
+line-length = 110
+target-version = ["py39", "py310", "py311", "py312"]
